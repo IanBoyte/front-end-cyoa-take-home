@@ -1,0 +1,47 @@
+{
+  "name": "front-end-cyoa",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "nodemon server",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start\""
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "date-fns": "^2.22.1",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "body-parser": "1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "4.16.4",
+    "nodemon": "^1.18.10",
+    "sqlite3": "^4.0.7"
+  },
+  "keywords": [],
+  "description": "",
+  "proxy": "http://localhost:3001",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
