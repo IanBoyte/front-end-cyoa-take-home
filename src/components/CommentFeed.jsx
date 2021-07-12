@@ -56,7 +56,7 @@ function CommentFeed() {
 
   // fetch comments at each interval
   useInterval(() => {
-    fetchComments(items);
+    fetchComments();
   }, 10000);
 
   // set notification permission
@@ -78,7 +78,7 @@ function CommentFeed() {
     if (useNotifications) {
       new Notification("You have new comments.");
     }
-  }, [items.length]);
+  }, [items.length, useNotifications]);
 
   const onSubmit = () => {
     fetchComments();
@@ -88,7 +88,7 @@ function CommentFeed() {
     <div className="comment-feed">
       {isLoaded ? (
         <Fragment>
-          {error ? (
+          {error && items.length === 0 ? (
             <p className="error-text">{error}</p>
           ) : (
             <Fragment>

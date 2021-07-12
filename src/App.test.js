@@ -47,9 +47,9 @@ test("loads and displays comments", async () => {
   await waitFor(() => screen.getByText("Name"));
 
   expect(screen.getByText("Hi there"));
-  expect(screen.getByText("User1 on May 10th, 2019 at 9am"));
+  expect(screen.getByText("User1 on May 10th, 2019 at 5am"));
   expect(screen.getByText("Hello"));
-  expect(screen.getByText("User2 on March 10th at 12noon"));
+  expect(screen.getByText("User2 on March 10th at 7am"));
   expect(screen.getByText("Welcome"));
-  expect(screen.getByText("User3 on April 1st at 6pm"));
+  expect(screen.getByText("User3 on April 1st at 2pm"));
 });
