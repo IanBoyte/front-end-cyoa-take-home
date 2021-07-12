@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 function CommentSubmission(props) {
   const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
   const [hasError, setHasError] = useState(false);
+
+  const nameEl = useRef(null);
+  const messageEl = useRef(null);
 
   const commentSubmission = (userName, message, callback) => {
     // test values
@@ -26,30 +29,39 @@ function CommentSubmission(props) {
         if (typeof callback === "function") {
           callback();
         }
-        console.log("Success:", data);
       })
       .catch((error) => {
         if (typeof callback === "function") {
           callback();
         }
-        console.error("Error:", error);
+        console.error("Error: ", error);
       });
+
+    // clear values
+    nameEl.current.value = "";
+    messageEl.current.value = "";
+    setUserName("");
+    setMessage("");
   };
 
   return (
     <div className="comment-submission">
       <label>Name</label>
       <input
+        ref={nameEl}
         type="text"
         aria-label="Name"
         aria-required="true"
+        maxLength="100"
         onChange={(e) => setUserName(e.target.value)}
         name="userName"
       />
-      <textarea // max value?
+      <textarea // max length?
+        ref={messageEl}
         type="text"
         aria-label="Comment"
         aria-required="true"
+        maxLength="1000"
         onChange={(e) => setMessage(e.target.value)}
         name="message"
       />

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { format } from "date-fns";
 
 function Comment(props) {
   // format date
   const now = new Date();
-  const createdDate = new Date(props.created);
+  const createdDate = new Date(props.created + "+00:00"); // +00:00 accounting for unset timezone in date string
 
   // check if date is within a week or current year
   let formattedDate;
@@ -23,8 +23,6 @@ function Comment(props) {
     createdDate,
     "hbbb"
   )}`;
-
-  console.log(props.created);
 
   return (
     <div className="comment-item">
